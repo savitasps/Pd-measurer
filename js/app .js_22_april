@@ -1,0 +1,470 @@
+jQuery(document).ready(function ($) {
+
+
+
+
+        //font size using Slider based on jquery UI sliders
+
+
+        //font size using Slider based on jquery UI sliders
+
+
+
+		   $( "#sliderk" ).slider({
+
+            range: "max", // set range Type
+
+            min: 4, // set a minimum value
+
+            max: 100, //a max value
+
+            value: 32, // default value
+
+            slide: function( event, ui ) { // event onslider
+
+                $( ".size" ).text(ui.value + "px"); // update text on slider
+
+                $('.imagesm img').css( 'height',ui.value); // apply value on text (font-size) using css function (jquery)
+         your_credit_card=  $('.imagesm').width();
+         var offset_white = $('#imagesContainer1').offset();
+           var xPos_white_top = offset_white.top;
+
+         var offset_top = $('#imagesContainer2').offset();
+         var xPos_top = offset_top.top;
+
+          var distance_sh = xPos_top - xPos_white_top;
+           var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+            $('.imagesSH').text("SH: " + SHdis + " mm");
+	   var offset_right = $('#imagesContainerGs').position();
+       var xPos_right = offset_right.left;
+
+       var offset_left = $('#imagesContainer1').position();
+       var xPos_left = offset_left.left;
+	   var distance_px = xPos_right - xPos_left  ;
+       var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+	    $('.imagespd').text("PD: " + PD + " mm");
+
+
+
+					if ( PD > 80 || PD < 40 ){
+
+                $('.imagespd').text("Out of range");
+
+					}
+
+
+                }
+
+            });
+
+
+
+			  $( "#sliderpom" ).slider({
+
+            range: "max", // set range Type
+
+            min: 4, // set a minimum value
+
+            max: 400, //a max value
+
+            value: 200, // default value
+
+            slide: function( event, ui ) { // event onslider
+
+                $( ".sizepom" ).text(ui.value + "px"); // update text on slider
+
+			    $('.imagesm').css( 'width',ui.value); // apply value on text (font-size) using css function (jquery)
+
+			 your_credit_card=  $('.imagesm').width();
+       var offset_white = $('#imagesContainer1').offset();
+         var xPos_white_top = offset_white.top;
+
+       var offset_top = $('#imagesContainer2').offset();
+       var xPos_top = offset_top.top;
+
+        var distance_sh = xPos_top - xPos_white_top;
+         var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+          $('.imagesSH').text("SH: " + SHdis + " mm");
+	   var offset_right = $('#imagesContainerGs').position();
+       var xPos_right = offset_right.left;
+
+       var offset_left = $('#imagesContainer1').position();
+       var xPos_left = offset_left.left;
+	   var distance_px = xPos_right - xPos_left  ;
+       var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+	    $('.imagespd').text("PD: " + PD + " mm");
+
+						 if ( PD > 80 || PD < 40 ){
+
+                $('.imagespd').text("Out of range");
+
+					}
+
+
+
+                }
+
+            });
+
+
+
+
+
+
+
+
+
+
+			$( "#slidergx" ).slider({
+
+            range: "max", // set range Type
+
+            min: -45, // set a minimum value
+
+            max: 45, //a max value
+
+            value: 0, // default value
+
+            slide: function( event, ui ) { // event onslider
+
+                $( ".sizeg" ).text(ui.value + ' deg '); // update text on slider
+
+ 		 your_credit_card=  $('.imagesm').width();
+     var offset_white = $('#imagesContainer1').offset();
+       var xPos_white_top = offset_white.top;
+
+     var offset_top = $('#imagesContainer2').offset();
+     var xPos_top = offset_top.top;
+
+      var distance_sh = xPos_top - xPos_white_top;
+       var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+        $('.imagesSH').text("SH: " + SHdis + " mm");
+	   var offset_right = $('#imagesContainerGs').position();
+       var xPos_right = offset_right.left;
+
+       var offset_left = $('#imagesContainer1').position();
+       var xPos_left = offset_left.left;
+	   var distance_px = xPos_right - xPos_left  ;
+       var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+	    $('.imagespd').text("PD: " + PD + " mm");
+
+						 if ( PD > 80 || PD < 40 ){
+
+                $('.imagespd').text("Out of range");
+
+					}
+
+			$('.imagesm').css({'-webkit-transform' : 'rotate('+ui.value+'deg)',
+
+                 '-moz-transform' : 'rotate('+ui.value+'deg)',
+
+                 '-ms-transform' : 'rotate('+ui.value+'deg)',
+
+                 'transform' : 'rotate('+ui.value+'deg)'});
+
+
+
+                }
+
+            });
+
+		    $( ".sizegx" ).text($( "#slidergx" ).slider( "value" ) +   "°"); // get default value from slider and show it to the user
+
+
+
+
+
+            // function to get image preview on the template we don't need to upload it on the server using this function
+
+            var countImg = 1;
+
+          function readURL(input) {
+
+		 var src = $(this).find('img').attr('src');
+
+            if (input.files && input.files[0]) { // if there is a file from input
+
+                var reader = new FileReader(); // read file
+
+                reader.onload = function (e) { // on load
+
+
+                          $('#Tshirtsrc').attr('src',e.target.result);
+
+
+
+                    countImg ++;
+
+
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+
+            }
+
+        }
+
+
+
+
+
+                        // load imagesx
+
+                        $("#imgInp").on('change',function(){
+
+                          var marker =$('.marker').text();
+                          var markerblue =$('.markerblue').text();
+
+                          var credit_card = $('.credit_card').text();
+
+                          $('.imagespd,.imagesSH').text("");
+
+                          $('#imagesContainerGs').find('img').remove();
+
+                          $('#imagesContainer1').find('img').remove();
+
+                          $('#imagesContainerm').find('img').remove();
+
+                          $('#imagesContainerpd').find('.imagespd').remove();
+
+                          $('#imagesContainerSH').find('.imagesSH').remove();
+
+                          $('#imagesContainerGs').append("<div class='images' style='z-index:999'><img src="+marker+" ></div>");
+
+                          $('#imagesContainer1').append("<div class='images1' style='z-index:999'><img src="+marker+" ></div>");
+
+                          $('#imagesContainer2').append("<div class='images2' style='z-index:999'><img src="+markerblue+" ></div>");
+
+                          $('#imagesContainerm').append("<div class='imagesm' style='z-index:999'><img src="+credit_card+" ></div>");
+
+                          $('#imagesContainerpd').append("<div class='imagespd' style='z-index:999; color:#FFFFFF;'></div>");
+
+                          $('#imagesContainerSH').append("<div class='imagesSH' style='z-index:999; color:#FFFFFF;'></div>");
+                            readURL(this); // call our function readURL
+
+
+                        });
+
+
+
+
+                        $('#imgInp').customFileInput({
+
+                            // put button 'browse' on right
+
+                            button_position : 'right'
+
+                        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //change Guitar template
+
+        $('.tshirts a').click(function(){
+
+            //get clicked template src
+
+            var src = $(this).find('img').attr('src');
+
+            //apply it on the original image to be edited
+
+            $('#Tshirtsrc').attr('src', src);
+
+
+
+            return false;
+
+        });
+
+
+
+
+
+
+
+
+
+        // tooltip
+
+        $('.font-tooltip').tooltip();
+
+
+
+        $('.tooltip-show').tooltip({
+
+          selector: "a[data-toggle=tooltip]"
+
+        });
+
+
+
+        	var your_credit_card="";
+
+                       // set draggable stuff
+           $('#imagesContainerGs').draggable({
+              drag: function(){
+              your_credit_card=  $('.imagesm').width();
+              var offset_white = $('#imagesContainer1').offset();
+                var xPos_white_top = offset_white.top;
+
+              var offset_top = $('#imagesContainer2').offset();
+              var xPos_top = offset_top.top;
+
+               var distance_sh = xPos_top - xPos_white_top;
+                var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+                 $('.imagesSH').text("SH: " + SHdis + " mm");
+
+        	   var offset_right = $('#imagesContainerGs').position();
+               var xPos_right = offset_right.left;
+
+               var offset_left = $('#imagesContainer1').position();
+               var xPos_left = offset_left.left;
+        	   var distance_px = xPos_right - xPos_left  ;
+               var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+        	    $('.imagespd').text("PD: " + PD + " mm");
+
+        		   $('.navbar').show('bounce', {}, 800);
+        		//   	$('.Start_Measuring,.ip-webcam').hide();
+
+        			 	$('.attach').hide();
+        				$('.saveimge,.pd_cancel').show();
+
+        					if ( PD > 80 || PD < 40 ){
+
+                        $('.imagespd').text("Out of range");
+
+        					}
+        	        }
+                    });
+
+
+
+                    // set draggable stuff
+              $('#imagesContainer2').draggable({
+                 drag: function(){
+          your_credit_card=  $('.imagesm').width();
+        var offset_white = $('#imagesContainer1').offset();
+          var xPos_white_top = offset_white.top;
+
+        var offset_top = $('#imagesContainer2').offset();
+        var xPos_top = offset_top.top;
+
+         var distance_sh = xPos_top - xPos_white_top;
+          var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+           $('.imagesSH').text("SH: " + SHdis + " mm");
+           	      }
+                       });
+
+        			   // set draggable stuff
+           $('#imagesContainer1').draggable({
+              drag: function(){
+
+              your_credit_card=  $('.imagesm').width();
+              var offset_white = $('#imagesContainer1').offset();
+                var xPos_white_top = offset_white.top;
+
+              var offset_top = $('#imagesContainer2').offset();
+              var xPos_top = offset_top.top;
+
+               var distance_sh = xPos_top - xPos_white_top;
+                var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+                 $('.imagesSH').text("SH: " + SHdis + " mm");
+
+        	   var offset_right = $('#imagesContainerGs').position();
+               var xPos_right = offset_right.left;
+
+               var offset_left = $('#imagesContainer1').position();
+               var xPos_left = offset_left.left;
+        	   var distance_px = xPos_right - xPos_left  ;
+               var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+        	    $('.imagespd').text("PD: " + PD + " mm");
+
+        		       $('.navbar').show('bounce', {}, 800);
+        			   //	 $('.Start_Measuring,.ip-webcam').hide();
+        				  	$('.attach').hide();
+        				$('.saveimge,.pd_cancel').show();
+        					if ( PD > 80 || PD < 40 ){
+
+                        $('.imagespd').text("Out of range");
+
+        					}
+
+
+        	      }
+                    });
+
+        			   // set draggable stuff
+           $('#imagesContainerm').draggable({
+               drag: function(){
+              your_credit_card=  $('.imagesm').width();
+              var offset_white = $('#imagesContainer1').offset();
+                var xPos_white_top = offset_white.top;
+
+              var offset_top = $('#imagesContainer2').offset();
+              var xPos_top = offset_top.top;
+
+               var distance_sh = xPos_top - xPos_white_top;
+                var SHdis = (distance_sh * 85.6 / your_credit_card).toFixed(1);
+                 $('.imagesSH').text("SH: " + SHdis + " mm");
+
+        	   var offset_right = $('#imagesContainerGs').position();
+               var xPos_right = offset_right.left;
+
+               var offset_left = $('#imagesContainer1').position();
+               var xPos_left = offset_left.left;
+        	   var distance_px = xPos_right - xPos_left  ;
+               var PD = (distance_px * 85.6 / your_credit_card).toFixed(1);
+        	    $('.imagespd').text("PD: " + PD + " mm");
+
+        	    $('.navbar').show('bounce', {}, 800);
+        		//  $('.Start_Measuring,.ip-webcam').hide();
+        		  	$('.attach').hide();
+        				$('.saveimge,.pd_cancel').show();
+
+        					if ( PD > 80 || PD < 40 ){
+
+                        $('.imagespd').text("Out of range");
+
+
+        					}
+
+
+        	      }
+                    });
+
+
+        	$('#imagesContainerpd, #imagesContainerSH').draggable();
+
+                setTimeout(function(){
+
+                 if($('#Tshirtsrc').length > 0){
+
+                        var h = $('#Tshirtsrc').height();
+
+                        var w = $('#Tshirtsrc').width();
+
+                        $('.imageContainerLimit').css({
+
+                        'width': w,
+
+                        'height': h
+
+                        })
+                    }
+
+                }, 2000);
+
+            });
